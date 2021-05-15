@@ -25,11 +25,11 @@
 
   {{ product|product_spec }}
 
-  {% if product.category.slug == 'notebooks'%}
+  {% comment %} {% if product.category.slug == 'notebooks'%}
     {% include 'notebook_specification.html' %}
   {% else %}
     {% include 'smartphone_specification.html' %}
-  {% endif %}
+  {% endif %} {% endcomment %}
 
 </div>
 {% endblock content %}
