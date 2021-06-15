@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function Navbar() {
@@ -11,8 +12,8 @@ function Navbar() {
       url: 'http://127.0.0.1:8000/api/category/'
     }).then(response => {
       setCategories(response.data)
-    }, [])
-  })
+    })
+  }, [])
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +25,7 @@ function Navbar() {
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
         {categories.map(c =>
-          <a className="nav-link" href="#" key={c.id}>{c.name}</a>
+          <Link className='nav-link' to={{ pathname: `/category/${c.id}/`, fromDashboard: false }}>{c.name}</Link>
         )}
       </div>
     </div>
